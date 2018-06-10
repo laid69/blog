@@ -5,9 +5,13 @@ def home(request):
 	return render(request,'home.html')
 
 def about(request):
-	#return  HttpResponse("<h1>hello dtp</h1>")
 	return render(request,'pages/about.html')
 
 def contact(request):
-	#return  HttpResponse("<h1>hello dtp</h1>")
 	return render(request,'pages/contact.html')
+
+def handler404(request, exception=None):
+	return render(request,'errors/404.html',{'error':exception}, status=404)
+
+def handler500(request, exception=None):
+	return render(request,'errors/500.html',{}, status=500)

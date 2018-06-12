@@ -1,10 +1,15 @@
-<nav>
-	<ul>
-		<li> <a href="{% url 'home'%}">Home</a></li>
-		<li> <a href="{% url 'blog:index'%}">Blog</a></li>
-		<li> <a href="{% url 'about'%}">About</a></li>
-		<li> <a href="{% url 'contact'%}">Conract</a></li>
-	</ul>
+<nav class="navbar">
+	
+	<div class="wrapper">
+
+		<a href="{% url 'home' %}" class="navbar-brand"> DTP </a>
+		<ul class="navbar-right">
+			<li> <a href="{% url 'home'%}">Home</a></li>
+			<li> <a href="{% url 'blog:index'%}">Blog</a></li>
+			<li> <a href="{% url 'about'%}">About</a></li>
+			<li> <a href="{% url 'contact'%}">Conract</a></li>
+		</ul>
+	</div>
 </nav>
 
 

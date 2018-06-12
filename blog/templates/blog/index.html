@@ -1,21 +1,26 @@
-{% extends 'layouts/base.html'%}
+{% extends 'blog/base.html'%}
 
 {% block title %} Blog | DTP {% endblock %}
 
-{% block content %}
 
-	<h1>Blog ({{posts|length}} posts)  </h1>
+
+{% block body %}
+
+	<h1> ({{posts|length}} posts)  </h1>
 	<ul>
 	{% for post in posts%}
 		
 		<article>
-			<h2><a href="{% url 'blog:show' post.id%}"> #{{post.id}} - {{post.title|upper}} </a></h2>
-			<p> {{post.body|truncatewords:3}} </p>
+			<h2 class="title">
+				<a href="{% url 'blog:show' post.id%}"> #{{post.id}} - {{post.title|upper}} </a>
+			</h2>
+			<p class="time"><time datetime="{{ post.created_at}}|'Y-m-d'}}">Posted {{post.created_at|timesince}} ago</time></p>
+			<p class="content"> {{post.body|truncatewords:3}} </p>
 			<p><a href="{% url 'blog:show' post.id%}"'>lire la suite </a></p> 
 		</article>
 
 		{% if not forloop.last %}
-			<hr>
+			<!-- <hr> -->
 		{% endif %}
 
 	{% empty %}
